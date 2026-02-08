@@ -639,17 +639,19 @@
             z-index: 2000;
             padding: 1rem;
             animation: fadeIn 0.3s ease-out;
+            overflow-y: auto;
         }
 
         .modal {
             background: white;
             border-radius: 24px;
-            max-width: 600px;
+            max-width: 900px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: var(--shadow-lg);
             animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: auto;
         }
 
         @keyframes modalSlideIn {
@@ -667,12 +669,36 @@
             padding: 2rem;
             background: var(--gradient-1);
             color: white;
+            position: relative;
         }
 
         .modal-header h3 {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             margin-bottom: 0.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
         }
 
         .modal-body {
@@ -685,6 +711,187 @@
             display: flex;
             gap: 1rem;
             justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        /* Create Event Form */
+        .create-event-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: var(--transition);
+            background: white;
+            cursor: pointer;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: var(--transition);
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .event-type-toggle {
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem;
+            background: #f5f5f5;
+            border-radius: 12px;
+        }
+
+        .event-type-option {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-family: 'DM Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .event-type-option.active {
+            background: white;
+            color: #667eea;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .event-type-option:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .agenda-builder {
+            background: #f8f8f8;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .agenda-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .agenda-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: white;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .agenda-item-number {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .agenda-item-text {
+            flex: 1;
+        }
+
+        .agenda-item-remove {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #ffebee;
+            color: #e94560;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .agenda-item-remove:hover {
+            background: #e94560;
+            color: white;
+        }
+
+        .agenda-input-group {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .agenda-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .agenda-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-add-agenda {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'DM Sans', sans-serif;
+            white-space: nowrap;
+        }
+
+        .btn-add-agenda:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
@@ -1010,6 +1217,27 @@
             .modal-header,
             .modal-body {
                 padding: 1.5rem;
+            }
+
+            .modal-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .create-event-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .agenda-input-group {
+                flex-direction: column;
+            }
+
+            .btn-add-agenda {
+                width: 100%;
+            }
+
+            .modal-footer {
+                padding: 1rem 1.5rem;
             }
 
             .admin-dashboard {
@@ -1338,6 +1566,7 @@
             const [filter, setFilter] = useState('all');
             const [selectedEvent, setSelectedEvent] = useState(null);
             const [showModal, setShowModal] = useState(false);
+            const [showCreateModal, setShowCreateModal] = useState(false);
             const [registeredEvents, setRegisteredEvents] = useState([]);
 
             const handleLogin = (email, password) => {
@@ -1363,6 +1592,16 @@
                         e.id === eventId ? {...e, participants: e.participants + 1} : e
                     ));
                 }
+            };
+
+            const handleCreateEvent = (newEvent) => {
+                const event = {
+                    ...newEvent,
+                    id: events.length + 1,
+                    participants: 0
+                };
+                setEvents([event, ...events]);
+                setShowCreateModal(false);
             };
 
             const filteredEvents = filter === 'all' 
@@ -1394,6 +1633,7 @@
                                         setSelectedEvent(event);
                                         setShowModal(true);
                                     }}
+                                    onCreateClick={() => setShowCreateModal(true)}
                                 />
                             )}
 
@@ -1414,6 +1654,13 @@
                                         handleRegister(selectedEvent.id);
                                         setShowModal(false);
                                     }}
+                                />
+                            )}
+
+                            {showCreateModal && (
+                                <CreateEventModal 
+                                    onClose={() => setShowCreateModal(false)}
+                                    onCreate={handleCreateEvent}
                                 />
                             )}
                         </div>
@@ -1596,13 +1843,13 @@
         }
 
         // Events Page Component
-        function EventsPage({ events, filter, setFilter, currentUser, registeredEvents, onRegister, onEventClick }) {
+        function EventsPage({ events, filter, setFilter, currentUser, registeredEvents, onRegister, onEventClick, onCreateClick }) {
             return (
                 <>
                     <div className="events-header">
                         <h2>Upcoming Events</h2>
                         {currentUser.role === 'admin' && (
-                            <button className="btn-create">+ Create Event</button>
+                            <button className="btn-create" onClick={onCreateClick}>+ Create Event</button>
                         )}
                     </div>
 
@@ -1885,6 +2132,214 @@
                                 {hasEvent(day.date) && <div className="event-dot"></div>}
                             </div>
                         ))}
+                    </div>
+                </div>
+            );
+        }
+
+        // Create Event Modal Component
+        function CreateEventModal({ onClose, onCreate }) {
+            const [formData, setFormData] = useState({
+                title: '',
+                description: '',
+                date: '',
+                time: '',
+                location: '',
+                type: 'public',
+                maxParticipants: 100
+            });
+            const [agenda, setAgenda] = useState([]);
+            const [newAgendaItem, setNewAgendaItem] = useState('');
+
+            const handleChange = (e) => {
+                const { name, value } = e.target;
+                setFormData(prev => ({
+                    ...prev,
+                    [name]: value
+                }));
+            };
+
+            const handleAddAgenda = () => {
+                if (newAgendaItem.trim()) {
+                    setAgenda([...agenda, newAgendaItem.trim()]);
+                    setNewAgendaItem('');
+                }
+            };
+
+            const handleRemoveAgenda = (index) => {
+                setAgenda(agenda.filter((_, i) => i !== index));
+            };
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                onCreate({
+                    ...formData,
+                    agenda: agenda.length > 0 ? agenda : ['Event Program']
+                });
+            };
+
+            return (
+                <div className="modal-overlay" onClick={onClose}>
+                    <div className="modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3>Create New Event</h3>
+                            <p style={{opacity: 0.9, marginTop: '0.5rem'}}>Fill in the details to create a new university event</p>
+                            <button className="modal-close" onClick={onClose}>×</button>
+                        </div>
+
+                        <div className="modal-body">
+                            <form onSubmit={handleSubmit}>
+                                <div className="create-event-grid">
+                                    <div className="form-group form-group-full">
+                                        <label className="form-label">Event Title *</label>
+                                        <input 
+                                            type="text"
+                                            name="title"
+                                            className="form-input"
+                                            placeholder="Enter event title"
+                                            value={formData.title}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="form-group form-group-full">
+                                        <label className="form-label">Description *</label>
+                                        <textarea 
+                                            name="description"
+                                            className="form-textarea"
+                                            placeholder="Describe your event..."
+                                            value={formData.description}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label className="form-label">Event Date *</label>
+                                        <input 
+                                            type="date"
+                                            name="date"
+                                            className="form-input"
+                                            value={formData.date}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label className="form-label">Event Time *</label>
+                                        <input 
+                                            type="time"
+                                            name="time"
+                                            className="form-input"
+                                            value={formData.time}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="form-group form-group-full">
+                                        <label className="form-label">Location *</label>
+                                        <input 
+                                            type="text"
+                                            name="location"
+                                            className="form-input"
+                                            placeholder="Building, Room Number"
+                                            value={formData.location}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label className="form-label">Event Type *</label>
+                                        <div className="event-type-toggle">
+                                            <button
+                                                type="button"
+                                                className={`event-type-option ${formData.type === 'public' ? 'active' : ''}`}
+                                                onClick={() => setFormData(prev => ({...prev, type: 'public'}))}
+                                            >
+                                                🌍 Public
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className={`event-type-option ${formData.type === 'private' ? 'active' : ''}`}
+                                                onClick={() => setFormData(prev => ({...prev, type: 'private'}))}
+                                            >
+                                                🔒 Private
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label className="form-label">Max Participants *</label>
+                                        <input 
+                                            type="number"
+                                            name="maxParticipants"
+                                            className="form-input"
+                                            placeholder="100"
+                                            min="1"
+                                            value={formData.maxParticipants}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="form-group form-group-full">
+                                        <label className="form-label">Event Agenda</label>
+                                        <div className="agenda-builder">
+                                            {agenda.length > 0 && (
+                                                <div className="agenda-items">
+                                                    {agenda.map((item, index) => (
+                                                        <div key={index} className="agenda-item">
+                                                            <div className="agenda-item-number">{index + 1}</div>
+                                                            <div className="agenda-item-text">{item}</div>
+                                                            <button
+                                                                type="button"
+                                                                className="agenda-item-remove"
+                                                                onClick={() => handleRemoveAgenda(index)}
+                                                            >
+                                                                ×
+                                                            </button>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                            <div className="agenda-input-group">
+                                                <input 
+                                                    type="text"
+                                                    className="agenda-input"
+                                                    placeholder="Add agenda item (e.g., 'Welcome Speech')"
+                                                    value={newAgendaItem}
+                                                    onChange={(e) => setNewAgendaItem(e.target.value)}
+                                                    onKeyPress={(e) => {
+                                                        if (e.key === 'Enter') {
+                                                            e.preventDefault();
+                                                            handleAddAgenda();
+                                                        }
+                                                    }}
+                                                />
+                                                <button
+                                                    type="button"
+                                                    className="btn-add-agenda"
+                                                    onClick={handleAddAgenda}
+                                                >
+                                                    + Add
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div className="modal-footer">
+                            <button className="btn-secondary" onClick={onClose}>Cancel</button>
+                            <button className="btn-primary" onClick={handleSubmit} style={{width: 'auto', padding: '0.75rem 2rem'}}>
+                                Create Event
+                            </button>
+                        </div>
                     </div>
                 </div>
             );
