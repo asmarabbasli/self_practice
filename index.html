@@ -52,14 +52,16 @@
 
         /* Navigation */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
-            padding: 1rem 2rem;
+            -webkit-backdrop-filter: blur(20px);
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
             box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
             z-index: 1000;
             animation: slideDown 0.5s ease-out;
+            animation-fill-mode: both;
         }
 
         @keyframes slideDown {
